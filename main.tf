@@ -28,10 +28,10 @@ resource "google_compute_instance" "meetup" {
     access_config {}
   }
 
-  metadata = "${merge(
-    map("startup-script", "${var.startup_script}", "tf_depends_id", "${var.depends_id}"),
-    var.metadata
-  )}"
+  metadata = {
+     ssh-keys = "mohitk:${file("~/.ssh/id_rsa.pub")}"
+   }
+  metadata_startup_script = "sudo apt-get update && sudo apt-get install nginx -y"
 
   service_account {
     email  = "${var.service_account_email == "" ? data.google_compute_default_service_account.default.email : var.service_account_email }"

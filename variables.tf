@@ -20,7 +20,7 @@ variable "network_name" {
 
 variable "machine_type" {
   description = "In the form of custom-CPUS-MEM, number of CPUs and memory for custom machine. https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type#specifications"
-  default     = "custom-6-65536-ext"
+  default     = "custom-2-4096-ext"
 }
 
 variable "min_cpu_platform" {
@@ -60,12 +60,6 @@ variable "disk_size_gb" {
   description = "The size of the image in gigabytes."
   default     = 10
 }
-
-#variable "access_config" {
-#  description = "The access config block for the instances. Set to [{}] for ephemeral external IP."
-#  type        = "list"
-#  default     = []
-#}
 
 #variable "network_ip" {
 #  description = "Set the network IP of the instance. Useful only when num_nodes is equal to 1."

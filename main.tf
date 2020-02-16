@@ -25,8 +25,7 @@ resource "google_compute_instance" "meetup" {
 
   network_interface {
     subnetwork    = "${google_compute_subnetwork.meetup.name}"
-    #access_config = {}
-    #address       = "${var.network_ip}"
+    access_config {}
   }
 
   metadata = "${merge(
